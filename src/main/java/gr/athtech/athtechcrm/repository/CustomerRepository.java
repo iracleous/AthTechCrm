@@ -1,14 +1,11 @@
 package gr.athtech.athtechcrm.repository;
 
 import gr.athtech.athtechcrm.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CustomerRepository {
-    Customer create(Customer customer);
-    List<Customer> read();
-    Customer read(int id);
-    Customer update(int id, Customer customer);
-    boolean delete(int id);
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
 
 }
