@@ -1,0 +1,6 @@
+POST http://localhost:1005/customer
+Content-Type: application/json
+
+{ "name": "Json", "email": "json@xml.com"}
+
+###
