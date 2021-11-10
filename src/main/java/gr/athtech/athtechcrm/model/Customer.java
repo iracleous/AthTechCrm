@@ -8,10 +8,16 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(indexes = {
+        @Index(name = "nameIndex", columnList = "name")
+}
+)
+
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
 
     private String name;
     @Column(unique = true)

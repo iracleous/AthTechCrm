@@ -1,6 +1,7 @@
 package gr.athtech.athtechcrm.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Basket {
     private Status status;
 
     @ManyToOne
+    @JsonIgnore
     private Customer customer;
 
     @OneToMany(mappedBy = "basket")
