@@ -27,6 +27,9 @@ public class CrmController {
         return "The API is working";
     }
 
+
+
+
     @GetMapping("customer")
     public List<Customer> getCustomer(){
         return customerService.read();

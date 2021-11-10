@@ -23,7 +23,12 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer create(Customer customer) {
-
+        if (customer==null)
+            return null;
+        if (customer.getEmail()==null  )
+            return null;
+        if (customer.getEmail().equals("Italy"))
+            return null;
         return customerRepository.save(customer);
     }
 
