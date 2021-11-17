@@ -3,6 +3,7 @@ package gr.athtech.athtechcrm.controller;
 
 import gr.athtech.athtechcrm.dto.CustomerDto;
 import gr.athtech.athtechcrm.exception.CustomerNotFoundException;
+import gr.athtech.athtechcrm.front.ApiResponse;
 import gr.athtech.athtechcrm.model.Basket;
 import gr.athtech.athtechcrm.model.BasketProduct;
 import gr.athtech.athtechcrm.model.Customer;
@@ -38,27 +39,27 @@ public class CrmController {
 
 
     @GetMapping("customer")
-    public List<CustomerDto> getCustomer() {
+    public ApiResponse<List<CustomerDto>> getCustomer() {
         return customerService.read();
     }
 
     @GetMapping("customer/{id}")
-    public CustomerDto getCustomer(@PathVariable long id) {
+    public ApiResponse<CustomerDto> getCustomer(@PathVariable long id) {
         return customerService.read(id);
     }
 
     @PutMapping("customer/{id}")
-    public CustomerDto updateCustomer(@PathVariable long id, @RequestBody CustomerDto customer) {
+    public ApiResponse<CustomerDto> updateCustomer(@PathVariable long id, @RequestBody CustomerDto customer) {
         return customerService.update(id, customer);
     }
 
     @PostMapping("customer")
-    public CustomerDto createCustomer(@RequestBody CustomerDto customer) {
+    public ApiResponse<CustomerDto> createCustomer(@RequestBody CustomerDto customer) {
         return customerService.create(customer);
     }
 
     @DeleteMapping("customer/{id}")
-    public boolean deleteCustomer(@PathVariable long id) {
+    public ApiResponse<Boolean> deleteCustomer(@PathVariable long id) {
         return customerService.delete(id);
     }
 
