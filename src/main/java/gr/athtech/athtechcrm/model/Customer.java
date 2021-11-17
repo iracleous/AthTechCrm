@@ -1,6 +1,7 @@
 package gr.athtech.athtechcrm.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Customer {
     private String name;
     @Column(unique = true)
     private String email;
+
 
     @OneToMany(mappedBy = "customer")
     private List<Basket> baskets;

@@ -1,6 +1,7 @@
 package gr.athtech.athtechcrm.controller;
 
 
+import gr.athtech.athtechcrm.dto.CustomerDto;
 import gr.athtech.athtechcrm.exception.CustomerNotFoundException;
 import gr.athtech.athtechcrm.model.Basket;
 import gr.athtech.athtechcrm.model.BasketProduct;
@@ -37,22 +38,22 @@ public class CrmController {
 
 
     @GetMapping("customer")
-    public List<Customer> getCustomer() {
+    public List<CustomerDto> getCustomer() {
         return customerService.read();
     }
 
     @GetMapping("customer/{id}")
-    public Customer getCustomer(@PathVariable long id) {
+    public CustomerDto getCustomer(@PathVariable long id) {
         return customerService.read(id);
     }
 
     @PutMapping("customer/{id}")
-    public Customer updateCustomer(@PathVariable long id, @RequestBody Customer customer) {
+    public CustomerDto updateCustomer(@PathVariable long id, @RequestBody CustomerDto customer) {
         return customerService.update(id, customer);
     }
 
     @PostMapping("customer")
-    public Customer createCustomer(@RequestBody Customer customer) {
+    public CustomerDto createCustomer(@RequestBody CustomerDto customer) {
         return customerService.create(customer);
     }
 
