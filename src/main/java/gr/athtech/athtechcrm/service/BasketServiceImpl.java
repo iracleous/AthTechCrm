@@ -39,8 +39,10 @@ public class BasketServiceImpl implements BasketService{
         Basket basket = new Basket();
 
         basket.setCustomer(customer);
-        basket.setDateTime(new Date());
+
         basket.setStatus(Status.OPEN);
+        basket.setDateTime(new Date());
+
 
         return  basketRepository.save(basket);
     }
