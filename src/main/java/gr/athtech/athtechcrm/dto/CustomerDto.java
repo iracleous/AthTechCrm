@@ -13,6 +13,9 @@ public class CustomerDto {
     private String name;
     private String email;
 
+
+
+    //mappings
     public Customer getCustomer(){
         Customer customer = new Customer();
         customer.setName(name);

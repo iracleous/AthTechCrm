@@ -21,6 +21,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product create(Product product) {
+        //validations
+        if (product == null)  {
+            return null;
+        }
+        if ("potatoes".equals(product.getName())){
+            return null;
+        }
+
         return productRepository.save(product);
     }
 

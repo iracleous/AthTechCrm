@@ -17,5 +17,5 @@ public interface CustomerService {
     ApiResponse<CustomerDto> update(long id, CustomerDto customer);
     ApiResponse<Boolean> delete(long id);
 
-
+    int customerCount();
 }

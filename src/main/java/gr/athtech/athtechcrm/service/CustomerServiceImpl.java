@@ -78,4 +78,11 @@ public class CustomerServiceImpl implements CustomerService{
     public ApiResponse<Boolean> delete(long id) {
         return null;
     }
+
+
+    @Override
+    public  int customerCount(){
+        return customerRepository.customerCount();
+    }
+
 }

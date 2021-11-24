@@ -9,6 +9,7 @@ import gr.athtech.athtechcrm.model.BasketProduct;
 import gr.athtech.athtechcrm.model.Customer;
 import gr.athtech.athtechcrm.model.Product;
 import gr.athtech.athtechcrm.repository.CustomerRepository;
+import gr.athtech.athtechcrm.repository.ProductRepository;
 import gr.athtech.athtechcrm.service.BasketService;
 import gr.athtech.athtechcrm.service.CustomerService;
 import gr.athtech.athtechcrm.service.ProductService;
@@ -24,11 +25,15 @@ public class CrmController {
 
     private BasketService basketService;
 
+//violation of convention
+    private CustomerRepository customerRepository;
 
-    public CrmController(CustomerService customerService, ProductService productService, BasketService basketService) {
+
+    public CrmController(CustomerService customerService, ProductService productService, BasketService basketService, CustomerRepository customerRepository) {
         this.customerService = customerService;
         this.productService = productService;
         this.basketService = basketService;
+        this.customerRepository = customerRepository;
     }
 
 
@@ -95,4 +100,16 @@ public class CrmController {
         return basketService.addProduct(basketId, productId);
     }
 
+
+    @GetMapping("customercount")
+    public int customerCount(){
+        return customerService.customerCount();
+    }
+
+
+    @GetMapping("finfEmail")
+    public List<Customer> getByEmail()
+    {
+        return customerRepository.getCustomersUsingEmail("gmail");
+    }
 }
